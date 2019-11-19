@@ -33,12 +33,12 @@ void main(){
         int temp = 0;
         while(temp<first_number_length){
             if(first_number[temp]>second_number[temp]){
-                bigger_size = first_number;
+                bigger_size = first_number_length;
                 bigger_one = 1;
                 break;
             } 
             else if(first_number[temp]<second_number[temp]){
-                bigger_size = second_number;
+                bigger_size = second_number_length;
                 bigger_one = 2;
                 break;
             }            
@@ -79,37 +79,109 @@ void main(){
 
         int sum = 0;
 
+        if(first_number_digit<0 || first_number_digit>9) {
+            first_number_digit = 0;
+            first_number[first_number_length-1] = '0';
+        }
+        if(second_number_digit<0 || second_number_digit>9){
+            second_number_digit = 0;
+            second_number[second_number_length-1] = '0';
+        }
+
         if(bool_check==0){
-            if(first_number_digit<0 || first_number_digit>9) first_number_digit = 0;
-            if(second_number_digit<0 || second_number_digit>9) second_number_digit = 0;
             sum = first_number_digit + second_number_digit + shifter;
+            printf("%d + %d = %d \n", first_number_digit, second_number_digit, sum);
         }
 
         else if(bool_check==1){
             if(first_number_digit>second_number_digit){
                 sum = first_number_digit - second_number_digit;
+                printf("%d - %d = %d \n", first_number_digit, second_number_digit, sum);
             }
             else if(first_number_digit<second_number_digit){
                 int checker = first_number_digit;
                 int temp = first_number_length-1;
                 while(checker<second_number_digit){
                     checker = ( (char) first_number[temp] ) - '0';
-                    if(checker<0) first_number[temp] = '9';
-                    else first_number[temp] = 
+                    if(checker==0){
+                        first_number[temp] = '9';
+                        temp-=1;
+                        continue;
+                    }
+                    first_number_digit += 10;
+                    temp-=1;
+                    if (( ( (char) first_number[temp] ) - '0')==0) {
+                        int curr = temp;
+                        while (1)
+                        {
+                            if(first_number[curr]=='0') first_number[curr] = '9';
+                            else{
+                                first_number[curr]-=1;
+                                break;
+                            }
+                            curr -= 1;
+                        }                    
+                    }
+                    else{
+                        first_number[temp]-=1;
+                    }
+                    break;
                 }
+                sum = first_number_digit - second_number_digit;
+                printf("%d - %d = %d \n", first_number_digit, second_number_digit, sum);
+                // if(sum<0) sum*=-1;
             }
             else{
                 sum = 0;
             }
         }
-        else {
+        else if(bool_check==2){
+            if(second_number_digit>first_number_digit){
+                int checker = first_number_digit;
+                int temp = first_number_length-1;
+                while(checker<second_number_digit){
+                    checker = ( (char) first_number[temp] ) - '0';
+                    if(checker==0){
+                        first_number[temp] = '9';
+                        temp-=1;
+                        continue;
+                    }
+                    first_number_digit += 10;
+                    temp-=1;
+                    if (( ( (char) first_number[temp] ) - '0')==0) {
+                        int curr = temp;
+                        while (1)
+                        {
+                            if(first_number[curr]=='0') first_number[curr] = '9';
+                            else{
+                                first_number[curr]-=1;
+                                break;
+                            }
+                            curr -= 1;
+                        }                    
+                    }
+                    else{
+                        first_number[temp]-=1;
+                    }
+                    break;
+                }
+                sum = first_number_digit - second_number_digit;
+                printf("%d - %d = %d \n", first_number_digit, second_number_digit, sum);
+                // if(sum<0) sum*=-1;
+            }
+            else if(second_number_digit<first_number_digit){
+                sum = first_number_digit - second_number_digit;
+                printf("%d - %d = %d \n", first_number_digit, second_number_digit, sum);
+            }
+            else{
+                sum = 0;
+            }
         }
-        printf("%c with %c \n", first_number_digit+48, second_number_digit+48);
 
         first_number_length -= 1;
         second_number_length -= 1;
 
-        if(sum>=10) {
+        if(sum>=10 && positive_or_negative==1) {
             sum = sum-10;
             shifter = 1; 
         }
@@ -118,6 +190,9 @@ void main(){
         }
         result[temp_counter] = sum+48;
         temp_counter+=1;
+    }
+    if(positive_or_negative==-1){
+        printf("%c", '-');
     }
     if(shifter!=0){
         printf("%c",shifter+48);
