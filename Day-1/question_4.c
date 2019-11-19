@@ -86,10 +86,10 @@ void main(){
         }
 
         else if(bool_check==1){
-            if(bigger_one = 1){
-                sum = first_number_digit-second_number_digit;
+            if(first_number_digit>second_number_digit){
+                sum = first_number_digit - second_number_digit;
             }
-            else{
+            else if(first_number_digit<second_number_digit){
                 int checker = first_number_digit;
                 int temp = first_number_length-1;
                 while(checker<second_number_digit){
@@ -97,9 +97,6 @@ void main(){
                     if(checker<0) first_number[temp] = '9';
                     else first_number[temp] = 
                 }
-            }
-            else if(first_number_digit>second_number_digit){
-                sum = first_number_digit - second_number_digit;
             }
             else{
                 sum = 0;
