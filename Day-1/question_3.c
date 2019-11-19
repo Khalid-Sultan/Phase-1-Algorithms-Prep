@@ -17,7 +17,7 @@ void main(){
     }
 
     int row_counter = 0;
-    int spaces_counter = ((sides+1)/2);
+    int spaces_counter = sides-1;
     int stars_counter = 1;
     while(row_counter<sides){
         print_spaces(spaces_counter);
