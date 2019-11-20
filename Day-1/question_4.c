@@ -162,6 +162,7 @@ void main(){
                     }
                     else{
                         first_number[temp]-=1;
+                        
                     }
                     break;
                 }
