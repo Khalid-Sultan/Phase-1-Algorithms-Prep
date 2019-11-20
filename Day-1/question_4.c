@@ -48,21 +48,62 @@ void main(){
 
     int shifter = 0;
     
+
+    //Check For Negativity
     int bool_check = 0;
     int positive_or_negative = 1;
-
+    //If the first Number Has - sign at the first instance set flags
     if(first_number[0]=='-'){
         bool_check = 1;
+        positive_or_negative = -1;
     }
+    //If the second Number has - sign at the first instance set flags
     if(second_number[0]=='-'){
+        //If both have them
         if(bool_check==1) {
-            bool_check = 0;
-            positive_or_negative = -1;
+            bool_check = 3;
         }
+        //If only the second has -
         else{
             bool_check = 2;
-        }        
+            positive_or_negative = -1;
+        }
     }
+
+    //Shift the First Number to replace the - sign
+    if(bool_check==1){
+        int temp = 0;
+        while(temp<=first_number_length){
+            first_number[temp] = first_number[temp+1];
+            temp+=1;
+        }
+        first_number_length-=1;
+    }    
+    //Shift the Second Number to replace the - sign
+    else if(bool_check==2){
+        int temp = 0;
+        while(temp<=second_number_length){
+            second_number[temp] = second_number[temp+1];
+            temp+=1;
+        }
+        second_number_length-=1;
+    }    
+    //Shift Both Numbers to replace the - sign
+    else if(bool_check==3){
+        int temp = 0;
+        while(temp<=first_number_length){
+            first_number[temp] = first_number[temp+1];
+            temp+=1;
+        }
+        temp = 0;
+        while(temp<=second_number_length){
+            second_number[temp] = second_number[temp+1];
+            temp+=1;
+        }
+        first_number_length-=1;
+        second_number_length-=1;
+    }    
+
 
     if(bool_check==1 && bigger_one==1){
         positive_or_negative = -1;
@@ -88,7 +129,7 @@ void main(){
             second_number[second_number_length-1] = '0';
         }
 
-        if(bool_check==0){
+        if(bool_check==0 || bool_check==3){
             sum = first_number_digit + second_number_digit + shifter;
             printf("%d + %d = %d \n", first_number_digit, second_number_digit, sum);
         }
@@ -162,7 +203,7 @@ void main(){
                     }
                     else{
                         first_number[temp]-=1;
-                        
+
                     }
                     break;
                 }
@@ -195,11 +236,22 @@ void main(){
     if(positive_or_negative==-1){
         printf("%c", '-');
     }
+    else{
+        printf("%c", '+');
+    }
     if(shifter!=0){
         printf("%c",shifter+48);
     }
     int counter = temp_counter-1;    
+    int found = 0;
     while(counter>=0){
+        if(found==0){
+            if(result[counter]-48==0){
+                counter-=1;
+                continue;
+            }
+            found = 1;            
+        }
         printf("%c",result[counter]);
         counter-=1;
     }
