@@ -83,12 +83,7 @@ namespace Day_6
                 index += 1;
                 size += 1;
             }
-            int[] finalResult = new int[size];
-            for (int i = 0; i < size; i++)
-            {
-                finalResult[i] = resultArray[i];
-            }
-            return finalResult;
+            return resultArray;
 
         }
     }
