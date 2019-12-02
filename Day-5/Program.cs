@@ -12,14 +12,14 @@ namespace Day_5
 
         public static int[] selectionSort(int[] randomArray)
         {
-            for(int i = 0; i< randomArray.Length; i++)
+            for (int i = 0; i < randomArray.Length; i++)
             {
                 int min = randomArray[i];
                 int min_index = i;
-                for(int j = i; j < randomArray.Length; j++)
+                for (int j = i; j < randomArray.Length; j++)
                 {
                     if (i == j) continue;
-                    if (randomArray[j] < min )
+                    if (randomArray[j] < min)
                     {
                         min = randomArray[j];
                         min_index = j;
@@ -27,7 +27,7 @@ namespace Day_5
                 }
                 int temp = randomArray[i];
                 randomArray[i] = min;
-                randomArray[min_index] = temp; 
+                randomArray[min_index] = temp;
             }
             return randomArray;
         }
@@ -56,7 +56,7 @@ namespace Day_5
         //MERGE SORT
 
 
-        public static int[] mergeSort(int[] randomArray, int low=0, int high=9999)
+        public static int[] mergeSort(int[] randomArray, int low = 0, int high = 9999)
         {
             int mid;
             if (low < high)
@@ -64,7 +64,7 @@ namespace Day_5
                 mid = (low + high) / 2;
                 mergeSort(randomArray, low, mid);
                 mergeSort(randomArray, mid + 1, high);
-                int[] final_result = merging(low, mid, high,randomArray);
+                int[] final_result = merging(low, mid, high, randomArray);
                 return final_result;
             }
             else
@@ -98,7 +98,7 @@ namespace Day_5
 
 
         //QUICK SORT
-        
+
 
         public static void quickSort(int[] randomArray, int left = 0, int right = 9999)
         {
@@ -121,9 +121,9 @@ namespace Day_5
 
             while (true)
             {
-                while (randomArray[++leftPointer] < pivot){}
+                while (randomArray[++leftPointer] < pivot) { }
 
-                while (rightPointer > 0 && randomArray[--rightPointer] > pivot){}
+                while (rightPointer > 0 && randomArray[--rightPointer] > pivot) { }
 
                 if (leftPointer >= rightPointer) break;
                 else
@@ -142,7 +142,7 @@ namespace Day_5
 
         public static void PrintArray(int[] randomArray)
         {
-            for(int i = 0; i< 30; i++)
+            for (int i = 0; i < 30; i++)
             {
                 Console.Write($"{randomArray[i]} , ");
             }
@@ -150,7 +150,7 @@ namespace Day_5
         }
         static void Randomize<T>(T[] items)
         {
-            Random rand = new Random(); 
+            Random rand = new Random();
             for (int i = 0; i < items.Length - 1; i++)
             {
                 int j = rand.Next(i, items.Length);
@@ -159,35 +159,38 @@ namespace Day_5
                 items[j] = temp;
             }
         }
-            static void Main(string[] args)
+        static void Main(string[] args)
         {
-            Random rnd = new Random();
-            //int[] randomArray_for_selection = Enumerable.Range(0, 10000).OrderBy(c => rnd.Next()).ToArray();
-            //Console.WriteLine("RANDOM ARRAY FOR SELECTION");
-            //PrintArray(randomArray_for_selection);
+            int[] randomArray_for_selection = Enumerable.Range(0, 10000).ToArray();
+            Randomize(randomArray_for_selection);
+            Console.WriteLine("RANDOM ARRAY FOR SELECTION");
+            PrintArray(randomArray_for_selection);
 
-            //Console.WriteLine("SELECTION SORTED ARRAY");
-            //int[] selectedSort = selectionSort(randomArray_for_selection);
-            //PrintArray(selectedSort);
+            Console.WriteLine("SELECTION SORTED ARRAY");
+            int[] selectedSort = selectionSort(randomArray_for_selection);
+            PrintArray(selectedSort);
 
 
-            //int[] randomArray_for_insertion = Enumerable.Range(0, 10000).OrderBy(c => rnd.Next()).ToArray();
-            //Console.WriteLine("RANDOM ARRAY FOR INSERTION");
-            //PrintArray(randomArray_for_insertion);
+            int[] randomArray_for_insertion = Enumerable.Range(0, 10000).ToArray();
+            Randomize(randomArray_for_insertion);
+            Console.WriteLine("RANDOM ARRAY FOR INSERTION");
+            PrintArray(randomArray_for_insertion);
 
-            //Console.WriteLine("INSERTION SORTED ARRAY");
-            //int[] insertedSort = insertionSort(randomArray_for_insertion);
-            //PrintArray(insertedSort);
+            Console.WriteLine("INSERTION SORTED ARRAY");
+            int[] insertedSort = insertionSort(randomArray_for_insertion);
+            PrintArray(insertedSort);
 
-            //int[] randomArray_for_merge = Enumerable.Range(0, 10000).OrderBy(c => rnd.Next()).ToArray();
-            //Console.WriteLine("RANDOM ARRAY FOR MERGE");
-            //PrintArray(randomArray_for_merge);
+            int[] randomArray_for_merge = Enumerable.Range(0, 10000).ToArray();
+            Randomize(randomArray_for_merge);
+            Console.WriteLine("RANDOM ARRAY FOR MERGE");
+            PrintArray(randomArray_for_merge);
 
-            //Console.WriteLine("MERGE SORTED ARRAY");
-            //int[] mergedSort = mergeSort(randomArray:randomArray_for_merge);
-            //PrintArray(mergedSort);
+            Console.WriteLine("MERGE SORTED ARRAY");
+            int[] mergedSort = mergeSort(randomArray: randomArray_for_merge);
+            PrintArray(mergedSort);
 
-            int[] randomArray_for_quick = Enumerable.Range(0, 10000).OrderBy(c => rnd.Next()).ToArray();
+            int[] randomArray_for_quick = Enumerable.Range(0, 10000).ToArray();
+            Randomize(randomArray_for_quick);
             Console.WriteLine("RANDOM ARRAY FOR QUICK");
             PrintArray(randomArray_for_quick);
 
@@ -196,4 +199,4 @@ namespace Day_5
             PrintArray(randomArray_for_quick);
         }
     }
-    }
+}

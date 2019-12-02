@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1574247684 source:c:\users\khalidsultan\source\repos\cs487\day-1\question_1.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1514140574 source:c:\users\khalidsultan\source\repos\cs487\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1574247684 source:c:\users\khalidsultan\source\repos\cs487\day-1\question_2.c
+	<stdio.h>
+	<stdlib.h>
+
+1574247684 source:c:\users\khalidsultan\source\repos\cs487\day-1\question_3.c
+	<stdio.h>
+	<stdlib.h>
+
+1574247684 source:c:\users\khalidsultan\source\repos\cs487\day-1\question_4.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1574247684 source:c:\users\khalidsultan\source\repos\cs487\day-2\question_1.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1574761068 source:c:\users\khalidsultan\source\repos\cs487\day-3\cmake-build-debug\cmakefiles\3.15.3\compileridc\cmakeccompilerid.c
+
+1574761076 source:c:\users\khalidsultan\source\repos\cs487\day-3\cmake-build-debug\cmakefiles\3.15.3\compileridcxx\cmakecxxcompilerid.cpp
+
+1574707232 source:c:\users\khalidsultan\source\repos\cs487\day-3\main.cpp
+	<cstdio>
+
+1574761244 source:c:\users\khalidsultan\source\repos\cs487\day-3\testing.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
