@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Day_7
 {
-    class Question_4
+    class Distant_Barcodes
     {
         public int[] RearrangeBarcodes(int[] barcodes)
         {

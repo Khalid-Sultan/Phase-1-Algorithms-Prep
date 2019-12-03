@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Day_7
 {
-    class Question_1
+    class K_Closest_Points_To_Origin
     {
         public int Partition(int[] arr, int left, int right)
         {

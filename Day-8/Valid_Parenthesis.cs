@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Day_8
 {
-    class Question_1
+    class Valid_Parenthesis
     {
         public bool IsValid(string s)
         {

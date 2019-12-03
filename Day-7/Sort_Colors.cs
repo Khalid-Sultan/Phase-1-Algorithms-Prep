@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Day_7
 {
-    class Question_3
+    class Sort_Colors
     {
         public void SortColors(int[] nums)
         {

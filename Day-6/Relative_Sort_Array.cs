@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Day_6
 {
-    class Question_2
+    class Relative_Sort_Array
     {
         public int[] countingSort(int[] randomArray)
         {
@@ -39,7 +39,9 @@ namespace Day_6
 
         public int[] RelativeSortArray(int[] arr1, int[] arr2)
         {
+
             int[] sorted_arr1 = countingSort(arr1);
+
             int[] resultArray = new int[sorted_arr1.Length + arr2.Length];
 
             int found = 0;
@@ -83,7 +85,12 @@ namespace Day_6
                 index += 1;
                 size += 1;
             }
-            return resultArray;
+            int[] finalResult = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                finalResult[i] = resultArray[i];
+            }
+            return finalResult;
 
         }
     }
