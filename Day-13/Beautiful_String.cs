@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Day_13
 {
-    class Program
+    class Beautiful_String
     {
         static void Main(string[] args)
         {
