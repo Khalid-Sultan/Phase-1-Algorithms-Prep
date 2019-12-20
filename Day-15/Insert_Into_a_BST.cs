@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Day_14
+namespace Day_15
 {
     class Insert_Into_a_BST
     {
