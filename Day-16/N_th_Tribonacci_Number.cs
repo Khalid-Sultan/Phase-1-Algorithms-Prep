@@ -13,12 +13,11 @@ namespace Day_16
             if (n == 1) return 1;
             if (n == 2) return 1;
 
-            //if (memoized[n] == 0) memoized[n] = Tribonacci(n);
-            if (memoized[n - 1] == 0) memoized[n - 1] = Tribonacci(n - 1);
+            //if (memoized[n - 1] == 0) memoized[n - 1] = Tribonacci(n - 1);
             //if (memoized[n - 2] == 0) memoized[n - 2] = Tribonacci(n - 2);
             //if (memoized[n - 3] == 0) memoized[n - 3] = Tribonacci(n - 3);
 
-            return memoized[n] + memoized[n - 1] + memoized[n - 2];
+            return memoized[n-1] + memoized[n-2] + memoized[n - 3];
         }
         static void Main(string[] args)
         {
