@@ -44,13 +44,13 @@ namespace Day_19
             }
             return sum;
         }
-        static void Main(string[] args)
-        {
-            Console.WriteLine(SmallestDivisor(new int[] { 1, 2, 5, 9 }, 6));
-            Console.WriteLine(SmallestDivisor(new int[] { 2, 3, 5, 7, 11 }, 11));
-            Console.WriteLine(SmallestDivisor(new int[] { 19 }, 5));
-            Console.WriteLine(SmallestDivisor(new int[] { 59 }, 6));
-        }
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine(SmallestDivisor(new int[] { 1, 2, 5, 9 }, 6));
+        //    Console.WriteLine(SmallestDivisor(new int[] { 2, 3, 5, 7, 11 }, 11));
+        //    Console.WriteLine(SmallestDivisor(new int[] { 19 }, 5));
+        //    Console.WriteLine(SmallestDivisor(new int[] { 59 }, 6));
+        //}
 
     }
 }
