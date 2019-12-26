@@ -11,9 +11,6 @@ namespace Day_19
 
         public KthLargest(int k, int[] nums)
         {
-            if (k < 1 || nums.Length < k - 1)
-                throw new Exception("Incorrect Parameters.");
-
             minHeap = new MinHeap(k);
             capacity = k;
 
