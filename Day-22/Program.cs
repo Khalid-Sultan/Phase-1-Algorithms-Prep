@@ -6,7 +6,7 @@ namespace Day_22
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine(string.Format("{0}",1));
         }
     }
 }
