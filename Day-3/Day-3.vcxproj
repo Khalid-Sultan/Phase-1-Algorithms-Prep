@@ -78,6 +78,11 @@
     <ClCompile Include="Theatre_Square.cs" />
     <ClCompile Include="Watermelon_Problem.c" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Add_Two_Numbers.cs" />
+    <None Include="Reverse_Integer.cs" />
+    <None Include="Two_Sum.cs" />
+  </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
