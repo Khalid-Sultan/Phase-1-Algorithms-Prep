@@ -6,12 +6,6 @@ namespace Day_22
 {
     class PowXN
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine($"{MyPow(2.000, -20)} {MyPow(2.000, -20) == Math.Pow(2.000, -20)}");
-            Console.WriteLine($"{MyPow(2.000, -2147483648)} {MyPow(2.000, -2147483648) == Math.Pow(2.000, -2147483648)}");
-        }
-
         public static double MyPow(double x, int n)
         {
             if (n == 0) return 1;
