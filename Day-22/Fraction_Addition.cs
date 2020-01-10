@@ -14,15 +14,6 @@ namespace Day_22
             StringBuilder result = new StringBuilder();
             return result.ToString();
         }
-        static void Main(string[] args)
-        {
-            Console.WriteLine($"{FractionAddition("-1/2+1/2")}");
-            Console.WriteLine($"{FractionAddition("-1/2+1/2+1/3")}");
-            Console.WriteLine($"{FractionAddition("1/3-1/2")}");
-            Console.WriteLine($"{FractionAddition("5/3+1/3")}");
-        }
-
-
 
     }
 }
