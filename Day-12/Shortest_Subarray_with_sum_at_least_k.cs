@@ -37,9 +37,11 @@ namespace Day_12
         }
         static void Main(string[] args)
         {
-            Console.WriteLine(ShortestSubarray(new int[] { 1 }, 1));
-            Console.WriteLine(ShortestSubarray(new int[] { 1, 2 }, 4));
-            Console.WriteLine(ShortestSubarray(new int[] { 2, -1, 2 }, 3));
+            int number = 7;
+            for(int i = 0; i<9; i++)
+            {
+                Console.WriteLine($"7x{i}={number*i}");
+            }
         }
     }
 }
