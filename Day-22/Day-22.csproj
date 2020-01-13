@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,3 +7,70 @@
   </PropertyGroup>
 
 </Project>
+        /*
+                    int tests = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < tests; i++)
+            {
+                int length = Convert.ToInt32(Console.ReadLine());
+                string[] cupcakes = Console.ReadLine().Split(' ');
+                Dictionary<string, int> l = new Dictionary<string, int>();
+                foreach (string s in cupcakes)
+                {
+                    try
+                    {
+                        l[s] = 1;
+                    }
+                    catch
+                    {
+                        l.Add(s, 1);
+                    }
+                }
+                int yassir = 0;
+                foreach(string key in l.Keys)
+                {
+                    yassir += Convert.ToInt32(key);
+                }
+                bool found = false;
+                for (int j = 0; j < length; j++)
+                {
+                    int adel = Convert.ToInt32(cupcakes[j]);
+                    if (adel >= yassir)
+                    {
+                        Console.WriteLine("NO");
+                        found = true;
+                        break;
+                    }
+
+                    if (j == 0)
+                    {
+                        for (int k = j + 1; k < length - 1; k++)
+                        {
+                            adel += Convert.ToInt32(cupcakes[k]);
+                            if (adel >= yassir)
+                            {
+                                Console.WriteLine("NO");
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int k = j + 1; k < length; k++)
+                        {
+                            adel += Convert.ToInt32(cupcakes[k]);
+                            if (adel >= yassir)
+                            {
+                                Console.WriteLine("NO");
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (found == true) break;
+                }
+                if (!found)
+                    Console.WriteLine("YES");
+            }
+
+         */
