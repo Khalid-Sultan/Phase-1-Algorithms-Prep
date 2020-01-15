@@ -34,7 +34,7 @@ namespace Day_23
             return primes;
         }
 
-        static void Main(string[] args)
+        static void Find_Them()
         {
             Int64 X = Convert.ToInt64(Console.ReadLine());
             if (X == 1)
