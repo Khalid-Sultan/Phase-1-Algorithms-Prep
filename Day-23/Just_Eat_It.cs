@@ -33,7 +33,7 @@ namespace Day_23
             }
             return Math.Max(max_so_far, max_so_far_2);
         }
-        static void Main(string[] args)
+        static void Test()
         {
             int tests = Convert.ToInt32(Console.ReadLine());
             for (int i = 0; i < tests; i++)
