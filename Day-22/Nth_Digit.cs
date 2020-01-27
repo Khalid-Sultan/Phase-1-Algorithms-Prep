@@ -29,12 +29,5 @@ namespace Day_22
             }
             return result;            
         }
-
-        static void Main(string[] args)
-        {
-            Console.WriteLine(FindNthDigit(3));
-            Console.WriteLine(FindNthDigit(11));
-            Console.WriteLine(FindNthDigit(120));
-        }
     }
 }
