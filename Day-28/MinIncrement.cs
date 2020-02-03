@@ -11,14 +11,15 @@ namespace Day_28
             Array.Sort(A);
             Dictionary<int, int> pairs = new Dictionary<int, int>();
             int counter = 0;
-            for(int i = 0; i<A.Length; i++)
+            for (int i = 0; i < A.Length; i++)
             {
                 if (pairs.ContainsKey(A[i]))
                 {
                     while (pairs.ContainsKey(A[i]))
                     {
-                        A[i] = A[i-1]+1;
-                        counter++;
+                        int temp = A[i];
+                        A[i] = A[i - 1] + 1;
+                        counter += A[i] - temp;
                     }
                 }
                 pairs.Add(A[i], 1);
