@@ -25,52 +25,7 @@ namespace Day_30
                     }
                 }
                 return result;
-                //char[] original = S.ToCharArray();
-
-                //StringBuilder firstHalf = new StringBuilder().Append(original, 0, K);
-                //StringBuilder secondHalf = new StringBuilder().Append(original, K, S.Length - K);
-
-                //int max_first = maxIndex(char_array: firstHalf.ToString());
-                //int min_second = minIndex(char_array: secondHalf.ToString());
-
-                //if (firstHalf[max_first]<=secondHalf[min_second])
-                //{
-                //    return S;
-                //}
-                //else
-                //{
-                //    char i = firstHalf[max_first];
-                //    firstHalf.Remove(max_first, 1);
-                //    secondHalf.Append(i);
-                //    return OrderlyQueue(firstHalf.Append(secondHalf.ToString()).ToString(), K);
-                //}
             }
-        }
-
-        public static int minIndex(string char_array)
-        {
-            int initial = 0;
-            for (int i = 0; i < char_array.Length; i++)
-            {
-                if (char_array[i] < char_array[initial])
-                {
-                    initial = i;
-                }
-            }
-            return initial;
-        }
-
-        public static int maxIndex(string char_array)
-        {
-            int initial = 0;
-            for (int i = 0; i < char_array.Length; i++)
-            {
-                if (char_array[i] > char_array[initial])
-                {
-                    initial = i;
-                }
-            }
-            return initial;
         }
 
 
