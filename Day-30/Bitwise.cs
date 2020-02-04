@@ -36,5 +36,26 @@ namespace Day_30
         //    Console.WriteLine(SubarrayBitwiseORs(new int[] { 1,2,4 }));
         //}
 
+
+
+        /*
+            void bfs(Node node) {
+                queue<Node> que;
+                que.insert(node);
+                Visit[node.id] = true;
+                while(!que.isEmpty()) {
+		                Node curr = que.front();
+		                que.pop();
+		                for(Node child : curr.children) {
+	                if(!visited[child.id]) {
+	                que.push(child);
+	                visited[child.id] = true;
+                }
+                }
+                }
+            }
+
+         */
+
     }
 }

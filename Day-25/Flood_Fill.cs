@@ -45,10 +45,5 @@ namespace Day_25
                 }
             }
         }
-
-        static void Main(String[] args)
-        {
-
-        }
     }
 }
