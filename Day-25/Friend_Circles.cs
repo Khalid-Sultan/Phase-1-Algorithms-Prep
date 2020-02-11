@@ -62,16 +62,16 @@ namespace Day_25
             }
         }
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine(FindCircleNum(new int[][] {
-                new int[]{ 1, 1, 0},
-                new int[]{ 1, 1, 1},
-                new int[]{ 0, 1, 1},
-            }));
+        //static void Main(string[] args)
+        //{
+        //    Console.WriteLine(FindCircleNum(new int[][] {
+        //        new int[]{ 1, 1, 0},
+        //        new int[]{ 1, 1, 1},
+        //        new int[]{ 0, 1, 1},
+        //    }));
 
 
-            //[[1,0,0,1],[0,1,1,0],[0,1,1,1],[1,0,1,1]]
-        }
+        //    //[[1,0,0,1],[0,1,1,0],[0,1,1,1],[1,0,1,1]]
+        //}
     }
 }

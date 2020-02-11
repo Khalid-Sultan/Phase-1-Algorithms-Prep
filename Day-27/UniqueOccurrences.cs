@@ -9,7 +9,6 @@ namespace Day_27
         {
             Dictionary<int, int> sorted = new Dictionary<int, int>();
             Dictionary<int, int> counter = new Dictionary<int, int>();
-
             foreach (int i in arr)
             {
                 if (sorted.ContainsKey(i))

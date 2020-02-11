@@ -37,10 +37,5 @@ namespace Day_26
             }
             return true;
         }
-
-        static void Main(string[] args)
-        {
-            Console.WriteLine(IsSubsequence("axc", "ahbgdc"));
-        }
     }
 }
