@@ -17,13 +17,10 @@ namespace Day_31
 
             for(int i = 0; i<str1.Length; i++)
             {
-
             }
+            return str1;
         }
 
-        static void Main(string[] args)
-        {
-        }
 
     }
 }
