@@ -51,9 +51,9 @@ namespace Day_35
                 return result.Count == numCourses;
         }
 
-        static void Main(string[] args)
-        {
-            Console.WriteLine(CanFinish(2, new int[][] { new int[] { 1, 0 }, new int[] { 0, 1 } }));
-        }
+            //static void Main(string[] args)
+            //{
+            //    Console.WriteLine(CanFinish(2, new int[][] { new int[] { 1, 0 }, new int[] { 0, 1 } }));
+            //}
     }
 }
