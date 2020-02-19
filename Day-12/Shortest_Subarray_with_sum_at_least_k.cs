@@ -6,42 +6,44 @@ namespace Day_12
 {
     class Shortest_Subarray_with_sum_at_least_k
     {
-        public static int ShortestSubarray(int[] A, int K)
-        {
-            LinkedList<int> linked_list = new LinkedList<int>();
-            int[] temp = new int[A.Length + 1];
+        public int ShortestSubarray(int[] A, int target) {
+            int low = 1;
+            int high = A.Length;
 
-            temp[0] = 0;
-            for (int i = 0; i < A.Length; i++) temp[i + 1] = A[i] + temp[i];
-
-
-            int result = int.MaxValue;
-
-
-            for (int i = 0; i < temp.Length; i++)
-            {
-                while (linked_list.Count > 0 && temp[linked_list.Last.Value] >= temp[i]) linked_list.RemoveLast();
-
-                linked_list.AddLast(i);
-
-                while (linked_list.Count > 1 && temp[i] - temp[linked_list.First.Next.Value] >= K) linked_list.RemoveFirst();
-
-                if (i > 0 && temp[i] - temp[linked_list.First.Value] >= K)
-                {
-                    result = Math.Min(result, i - linked_list.First.Value);
+            while(low<high){
+                int mid = (low + high)/2;
+                if(CalculateSum(A, target, mid)){
+                    high = mid;
                 }
-
+                else{
+                    low = mid+1;
+                }
             }
 
-            return int.MaxValue == result ? -1 : result;
+            if(CalculateSum(A, target, low)){
+                return low;
+            }
+            return -1;
         }
-        static void Main(string[] args)
-        {
-            int number = 7;
-            for(int i = 0; i<9; i++)
-            {
-                Console.WriteLine($"7x{i}={number*i}");
+        public bool CalculateSum(int[] arr, int target, int counter){
+            int left = 0;
+            int sum = 0;
+            for(int i = 0; i<arr.Length; i++){
+                sum += arr[i];
+                if(sum<0){
+                    sum = 0;
+                    left = i + 1;
+                    continue;
+                }
+                while(left<i && (arr[left]<0 || i - left+1 > counter)){
+                    sum -= arr[left];
+                    left++;
+                }
+                if(sum>=target){
+                    return true;
+                }
             }
+            return false;
         }
     }
 }
