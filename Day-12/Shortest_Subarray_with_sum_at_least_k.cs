@@ -7,43 +7,43 @@ namespace Day_12
     class Shortest_Subarray_with_sum_at_least_k
     {
         public int ShortestSubarray(int[] A, int target) {
-            int low = 1;
-            int high = A.Length;
+            int[] result = new int[A.Length];
 
-            while(low<high){
-                int mid = (low + high)/2;
-                if(CalculateSum(A, target, mid)){
-                    high = mid;
-                }
-                else{
-                    low = mid+1;
-                }
-            }
-
-            if(CalculateSum(A, target, low)){
-                return low;
-            }
-            return -1;
-        }
-        public bool CalculateSum(int[] arr, int target, int counter){
-            int left = 0;
             int sum = 0;
-            for(int i = 0; i<arr.Length; i++){
-                sum += arr[i];
-                if(sum<0){
+            int start = A.Length - 1;
+            result[A.Length - 1] = 1;
+
+            for (int i = A.Length - 1; i > 0; i--) {
+                result[i - 1] = 1;
+                sum += A[i];
+                if (sum <= 0) { 
+                    result[i - 1] = start - i + 1;
+                } else {
+                    start = i;
                     sum = 0;
-                    left = i + 1;
-                    continue;
-                }
-                while(left<i && (arr[left]<0 || i - left+1 > counter)){
-                    sum -= arr[left];
-                    left++;
-                }
-                if(sum>=target){
-                    return true;
                 }
             }
-            return false;
+
+            start = 0;
+            int end = 0;
+            sum = 0;
+            int min = int.MaxValue;
+            while (end < A.Length) {
+                sum += A[end++];
+                while (start <= end && sum >= target) {
+                    min = Math.Min(end - start, min);
+                    for (int j = start; j < start + result[start]; j++) { 
+                        sum -= A[j];
+                    }
+                    start = start + result[start];
+                }
+                if (sum <= 0) {
+                    start = end;
+                    sum = 0;
+                }
+            }
+
+            return min == int.MaxValue ? -1 : min;
         }
     }
 }
