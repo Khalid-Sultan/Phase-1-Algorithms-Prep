@@ -8,52 +8,33 @@ namespace Day_28
     {
         public static int BagOfTokensScore(int[] tokens, int P)
         {
-            if (tokens.Length == 0) return 0;
             int points = 0;
+            int max_points = 0;
             Array.Sort(tokens);
 
-            List<int> tokenList = new List<int>(tokens);
-            List<int> pointsTally = new List<int>();
+            int start = 0;
+            int end = tokens.Length - 1;
 
-            int counter = 0;
-            while(tokenList.Count>0)
+            while (start <= end)
             {
-                if(tokenList.Contains(P))
+                if (P >= tokens[start])
                 {
-                    tokenList.RemoveAt(tokenList.IndexOf(P));
-                    P -= P;
                     points++;
-                    counter++;
+                    P -= tokens[start++];
+                    max_points = Math.Max(max_points, points);
+                }
+                else if (points > 0)
+                {
+                    points--;
+                    P += tokens[end--];
                 }
                 else
                 {
-                    if (points >= 1 && tokenList[0]>P)
-                    {
-                        points--;
-                        P += tokenList[tokenList.Count - 1];
-                        tokenList.RemoveAt(tokenList.Count - 1);
-                        counter++;
-                    }
-                    else
-                    {
-                        if (P >= tokenList[0])
-                        {
-                            P -= tokenList[0];
-                            points++;
-                            tokenList.RemoveAt(0);
-                            counter++;
-                        }
-                    }
+                    return max_points;
                 }
-                pointsTally.Add(points);
-                if (counter == 0)
-                {
-                    break;
-                }
-                counter = 0;
             }
-            pointsTally.Sort();
-            return pointsTally[pointsTally.Count-1];
+
+            return max_points;
         }
 
         static void Main(String[] args)
