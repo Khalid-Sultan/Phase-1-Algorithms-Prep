@@ -8,40 +8,56 @@ namespace Day_12
     {
         public static int ShortestSubarray(int[] A, int K)
         {
-            LinkedList<int> linked_list = new LinkedList<int>();
-            int[] temp = new int[A.Length + 1];
-
-            temp[0] = 0;
-            for (int i = 0; i < A.Length; i++) temp[i + 1] = A[i] + temp[i];
-
-
-            int result = int.MaxValue;
-
-
-            for (int i = 0; i < temp.Length; i++)
+            int[] sum = new int[A.Length + 1];
+            int[] deque = new int[A.Length + 1];
+            for (int i = 0; i <= A.Length; i++)
             {
-                while (linked_list.Count > 0 && temp[linked_list.Last.Value] >= temp[i]) linked_list.RemoveLast();
-
-                linked_list.AddLast(i);
-
-                while (linked_list.Count > 1 && temp[i] - temp[linked_list.First.Next.Value] >= K) linked_list.RemoveFirst();
-
-                if (i > 0 && temp[i] - temp[linked_list.First.Value] >= K)
-                {
-                    result = Math.Min(result, i - linked_list.First.Value);
-                }
-
+                sum[i] = 0;
+                deque[i] = 0;
+            }
+            for (int i = 0; i < A.Length; i++)
+            {
+                sum[i + 1] = sum[i] + A[i];
             }
 
-            return int.MaxValue == result ? -1 : result;
+            int start = 0;
+            int end = 0;
+            int ans = A.Length + 1;
+
+            for (int i = 0; i <= A.Length; i++)
+            {
+                while (start < end)
+                {
+                    if (sum[i] - sum[deque[start]] < K)
+                    {
+                        break;
+                    }
+                    ans = Math.Min(ans, i - deque[start]);
+                    start += 1;
+                }
+                while (start < end)
+                {
+                    if (sum[i] > sum[deque[end - 1]])
+                    {
+                        break;
+                    }
+                    end -= 1;
+                }
+                deque[end] = i;
+                end += 1;
+            }
+            if (ans == A.Length + 1)
+            {
+                return -1;
+            }
+            return ans;
         }
         static void Main(string[] args)
         {
-            int number = 7;
-            for(int i = 0; i<9; i++)
-            {
-                Console.WriteLine($"7x{i}={number*i}");
-            }
+            Console.WriteLine(ShortestSubarray(new int[] { 1 }, 1));
+            Console.WriteLine(ShortestSubarray(new int[] { 1,2 }, 4));
+            Console.WriteLine(ShortestSubarray(new int[] { 2,-1,2 }, 3));
+            Console.WriteLine(ShortestSubarray(new int[] { 7, -5, 3, -2, 8, -6, 7 },9));
         }
     }
 }

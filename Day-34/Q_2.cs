@@ -26,9 +26,9 @@ namespace Day_34
 
         }
 
-        static void Main(string[] args)
-        {
-            check();
-        }
+        //static void Main(string[] args)
+        //{
+        //    check();
+        //}
     }
 }
