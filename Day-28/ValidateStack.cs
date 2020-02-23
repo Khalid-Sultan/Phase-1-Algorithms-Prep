@@ -6,26 +6,22 @@ namespace Day_28
 {
     class ValidateStack
     {
-        public static bool ValidateStackSequences(int[] pushed, int[] popped)
+        static bool ValidateStackSequences(int[] pushed, int[] popped)
         {
-            Dictionary<int, int[]> pushed_pairs = new Dictionary<int, int[]>();
-            pushed_pairs.Add(pushed[0], new int[] { 0, 1 });
-            for (int i = 1; i < pushed.Length; i++)
+            Stack<int> result = new Stack<int>();
+            int j = 0;
+            foreach (int i in pushed)
             {
-                pushed_pairs.Add(pushed[i], new int[] { i-1, i+1});
-            }
-
-            int[] prev = new int[] { 0, 0};
-            foreach(int i in popped) {
-                prev = pushed_pairs[i];
-                pushed_pairs.Remove(i);
-                if(prev[0]!=i && prev[1] != i)
+                result.Push(i);
+                while (result.Count > 0 && j < pushed.Length && result.Peek() == popped[j])
                 {
-                    return false;
+                    result.Pop();
+                    j++;
                 }
             }
-            return true;
+            return j == pushed.Length;
         }
+
         //static void Main(string[] args)
         //{
         //    Console.WriteLine(ValidateStackSequences(new int[] { 1, 2, 3, 4, 5 }, new int[] { 4, 5, 3, 2, 1 }));
