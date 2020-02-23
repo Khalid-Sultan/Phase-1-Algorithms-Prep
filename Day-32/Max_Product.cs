@@ -13,56 +13,34 @@ namespace Day_32
             public TreeNode right;
             public TreeNode(int x) { val = x; }
         }
-        static int findSum(TreeNode root, int sum)
+        static int FindSum(TreeNode node)
         {
-            if(root.left==null && root.right == null)
-            {
-                return root.val;
-            }
-            if (root.left != null)
-            {
-                sum += findSum(root.left, sum);
-            }
-            if (root.right != null)
-            {
-                sum += findSum(root.right, sum);
-            }
-            return sum;
+            if (node == null)
+                return 0;
+            node.val += FindSum(node.left) + FindSum(node.right);
+            return node.val;
         }
         static int MaxProduct(TreeNode root)
         {
-            int currentMax = findSum(root, 0);
-            if (root.left == null && root.right == null)
-            {
-                return currentMax;
-            }
-            return MaxProduct(root,currentMax,currentMax) % Convert.ToInt32(Math.Pow(Convert.ToDouble(10),Convert.ToDouble(9))+7);
+            FindSum(root);
+
+            int total = root.val;
+            long maxProductEver = long.MinValue;
+
+            MaxProduct(root, ref maxProductEver, total);
+
+            return (int)((maxProductEver) % (Math.Pow(10, 9) + 7));
         }
-        static int MaxProduct(TreeNode root, int rootSum, int maxProduct)
+        static void MaxProduct(TreeNode node, ref long maxProductEver, int total)
         {
-            if(root.left==null && root.right == null)
-            {
-                return maxProduct;
-            }
-            if (root.left != null)
-            {
-                int currentSum = findSum(root.left, 0);
-                if (maxProduct < currentSum * (rootSum - currentSum))
-                {
-                    maxProduct = currentSum * (rootSum - currentSum);
-                }
-                maxProduct = MaxProduct(root.left, rootSum, maxProduct);
-            }
-            if (root.right != null)
-            {
-                int currentSum = findSum(root.right, 0);
-                if (maxProduct < currentSum * (rootSum - currentSum))
-                {
-                    maxProduct = currentSum * (rootSum - currentSum);
-                }
-                maxProduct = MaxProduct(root.left, rootSum, maxProduct);
-            }
-            return maxProduct;
+            if (node == null)
+                return;
+
+            long product = (long)node.val * (total - node.val);
+            maxProductEver = maxProductEver < product ? product : maxProductEver;
+
+            MaxProduct(node.left, ref maxProductEver, total);
+            MaxProduct(node.right, ref maxProductEver, total);
         }
 
     }
